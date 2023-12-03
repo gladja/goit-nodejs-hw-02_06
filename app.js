@@ -23,24 +23,4 @@ app.use((err, req, res, next) => {
     res.status(status).json({ message });
 });
 
-// const mongoose = require('mongoose');
-
-// const DB_HOST =
-//     'mongodb+srv://gladja:!56oip56oip!@cluster0.7y4tif8.mongodb.net/db-contacts?retryWrites=true&w=majority';
-
-// mongoose
-//     .connect(DB_HOST)
-//     .then(() => {
-//         console.log('Database connection successful');
-//     })
-//     .catch(err => {
-//         console.log(err.message);
-//         process.exit(1);
-//     });
-
 module.exports = app;
-
-// mongodb+srv://gladja:!56oip56oip!@cluster0.7y4tif8.mongodb.net/
-
-// base
-// mongodb+srv://gladja:!56oip56oip!@cluster0.7y4tif8.mongodb.net/db-contacts?retryWrites=true&w=majority
