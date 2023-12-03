@@ -1,5 +1,5 @@
-const express = require('express');
 const logger = require('morgan');
+const express = require('express');
 const cors = require('cors');
 
 const contactsRouter = require('./routes/api/contacts');
@@ -15,12 +15,32 @@ app.use(express.json());
 app.use('/api/contacts', contactsRouter);
 
 app.use((req, res) => {
-  res.status(404).json({ message: 'Not found' });
+    res.status(404).json({ message: 'Not found' });
 });
 
 app.use((err, req, res, next) => {
-  const { status = 500, message = 'Server error' } = err;
-  res.status(status).json({ message,});
+    const { status = 500, message = 'Server error' } = err;
+    res.status(status).json({ message });
 });
 
+// const mongoose = require('mongoose');
+
+// const DB_HOST =
+//     'mongodb+srv://gladja:!56oip56oip!@cluster0.7y4tif8.mongodb.net/db-contacts?retryWrites=true&w=majority';
+
+// mongoose
+//     .connect(DB_HOST)
+//     .then(() => {
+//         console.log('Database connection successful');
+//     })
+//     .catch(err => {
+//         console.log(err.message);
+//         process.exit(1);
+//     });
+
 module.exports = app;
+
+// mongodb+srv://gladja:!56oip56oip!@cluster0.7y4tif8.mongodb.net/
+
+// base
+// mongodb+srv://gladja:!56oip56oip!@cluster0.7y4tif8.mongodb.net/db-contacts?retryWrites=true&w=majority
