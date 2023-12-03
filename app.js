@@ -15,6 +15,11 @@ app.use(express.json());
 app.use('/api/contacts', contactsRouter);
 
 app.use((req, res) => {
+    const { favorite } = req.body;
+    // console.log(favorite);
+    if (favorite) {
+        res.status(400).json({ message: 'missing field favorite' });
+    }
     res.status(404).json({ message: 'Not found' });
 });
 
