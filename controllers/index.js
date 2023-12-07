@@ -5,7 +5,7 @@ const {
     removeContact,
     updateContact,
     updateStatusContact,
-} = require('./contacts');
+} = require('./contact');
 
 module.exports = {
     listContacts,
