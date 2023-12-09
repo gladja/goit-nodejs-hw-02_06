@@ -28,7 +28,7 @@ const userSchems = new Schema(
 );
 
 const usersJoiSchema = Joi.object({
-    password: Joi.string().required(),
+    password: Joi.string().min(6).required(),
     email: Joi.string().required(),
     subscription: Joi.string(),
     token: Joi.string(),

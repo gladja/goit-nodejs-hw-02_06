@@ -11,7 +11,7 @@ const { usersJoiSchema } = require('../../models');
 const router = express.Router();
 
 router.post('/register', validateBody(usersJoiSchema), ctrlWrapper(ctrl.register));
-router.post('/login');
+router.post('/login', validateBody(usersJoiSchema), ctrlWrapper(ctrl.login));
 router.post('/logout');
 router.post('/current');
 
