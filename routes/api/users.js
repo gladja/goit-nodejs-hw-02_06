@@ -4,7 +4,7 @@ const ctrl = require('../../controllers');
 
 const { ctrlWrapper } = require('../../helpers');
 
-const { validateBody } = require('../../middlewares');
+const { validateBody, userAuth } = require('../../middlewares');
 
 const { usersJoiSchema } = require('../../models');
 
@@ -12,7 +12,7 @@ const router = express.Router();
 
 router.post('/register', validateBody(usersJoiSchema), ctrlWrapper(ctrl.register));
 router.post('/login', validateBody(usersJoiSchema), ctrlWrapper(ctrl.login));
-router.post('/logout');
-router.post('/current');
+router.get('/current', userAuth, ctrlWrapper(ctrl.getCurrent));
+router.get('/logout', userAuth, ctrlWrapper(ctrl.logout));
 
 module.exports = router;
