@@ -11,7 +11,7 @@ const { contactsJoiSchema, favoriteJoiSchema } = require('../../models');
 const router = express.Router();
 
 router.get('/', userAuth, ctrlWrapper(ctrl.listContacts));
-router.get('/:contactId', isValidId, ctrlWrapper(ctrl.getContactById));
+router.get('/:contactId', userAuth, isValidId, ctrlWrapper(ctrl.getContactById));
 router.post('/', userAuth, validateBody(contactsJoiSchema), ctrlWrapper(ctrl.addContact));
 router.delete('/:contactId', isValidId, ctrlWrapper(ctrl.removeContact));
 router.put(
