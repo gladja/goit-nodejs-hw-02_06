@@ -16,5 +16,6 @@ router.get('/current', userAuth, ctrlWrapper(ctrl.getCurrent));
 router.get('/logout', userAuth, ctrlWrapper(ctrl.logout));
 router.patch('/:id/subscription', userAuth, ctrlWrapper(ctrl.updateStatusUser));
 router.patch('/avatars', userAuth, upload.single('avatar'), ctrlWrapper(ctrl.updateAvatar));
+router.get('/verify/:verificationToken', ctrlWrapper(ctrl.verifyEmail));
 
 module.exports = router;
