@@ -2,11 +2,14 @@ const { User } = require('../../models');
 
 const bcrypt = require('bcrypt');
 
-const { HttpError, sendEmail } = require('../../helpers');
+const { HttpError, sendEmail, addEnv } = require('../../helpers');
 
 const gravatar = require('gravatar');
 
 const { nanoid } = require('nanoid');
+
+addEnv(['../../', 'config', '.env']);
+const { BASE_URL } = process.env;
 
 const register = async (req, res) => {
     const { email, password, subscription } = req.body;
@@ -23,7 +26,7 @@ const register = async (req, res) => {
     const mail = {
         to: email,
         subject: 'Verification successful',
-        html: `<a target='blank' href='http://localhost:5000/users/verify/${verificationToken}'>Verification email</a>`,
+        html: `<a target='blank' href='${BASE_URL}/users/verify/${verificationToken}'>Verification email</a>`,
     };
     await sendEmail(mail);
 

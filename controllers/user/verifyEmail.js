@@ -15,14 +15,6 @@ const verifyEmail = async (req, res) => {
     res.status(200).json({
         code: 200,
         status: 'Verification successful',
-        // data: {
-        //     user: {
-        //         email,
-        //         subscription,
-        //         avatarURL,
-        //         verificationToken,
-        //     },
-        // },
     });
 };
 
