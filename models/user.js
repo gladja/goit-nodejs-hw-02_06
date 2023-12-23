@@ -51,9 +51,14 @@ const usersJoiSchema = Joi.object({
     token: Joi.string(),
 });
 
+const emailVerifyJoiSchema = Joi.object({
+    email: Joi.string().required(),
+});
+
 const User = model('user', userSchems);
 
 module.exports = {
     User,
     usersJoiSchema,
+    emailVerifyJoiSchema,
 };

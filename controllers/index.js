@@ -15,6 +15,7 @@ const {
     updateStatusUser,
     updateAvatar,
     verifyEmail,
+    resendVerifyEmail,
 } = require('./user');
 
 module.exports = {
@@ -32,4 +33,5 @@ module.exports = {
     updateStatusUser,
     updateAvatar,
     verifyEmail,
+    resendVerifyEmail,
 };
